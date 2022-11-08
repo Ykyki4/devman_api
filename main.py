@@ -1,4 +1,5 @@
 import time
+import textwrap
 
 import telegram
 import requests
@@ -10,14 +11,13 @@ def send_info_message(attempt):
         is_right = 'К сожалению в работе нашлись ошибки.'
     else:
         is_right = 'Преподавателю всё понравилось, можно приступать к работе.'
-    text = \
-f'''
-Вашу работу {attempt['lesson_title']} проверил преподаватель.
-    
-Ссылка на работу: {attempt['lesson_url']}
+    text = textwrap.dedent(f'''\
+    Вашу работу {attempt['lesson_title']} проверил преподаватель.
         
-{is_right}
-'''
+    Ссылка на работу: {attempt['lesson_url']}
+            
+    {is_right}
+    ''')
     bot.send_message(chat_id=tg_chat_id, text=text)
 
 
