@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 * DVMN_TOKEN - Получить можно по этой [ссылке](https://dvmn.org/api/docs/)
 * TG_TOKEN - Зарегистрировать нового бота можно [тут](https://telegram.me/BotFather)
-* CHAT_ID - Можно достать при помощи этого [бота](https://telegram.me/userinfobot)
+* TG_CHAT_ID - Можно достать при помощи этого [бота](https://telegram.me/userinfobot)
  
 После этих шагов, вы можете запускать скрипт командой:
 
