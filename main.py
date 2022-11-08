@@ -18,7 +18,7 @@ f'''
         
 {is_right}
 '''
-    bot.send_message(chat_id=chat_id, text=text)
+    bot.send_message(chat_id=tg_chat_id, text=text)
 
 
 if __name__ == '__main__':
@@ -26,7 +26,7 @@ if __name__ == '__main__':
     env.read_env()
     tg_token = env.str('TG_TOKEN')
     dvmn_token = env.str('DVMN_TOKEN')
-    chat_id = env('CHAT_ID')
+    tg_chat_id = env('TG_CHAT_ID')
 
     bot = telegram.Bot(token=tg_token)
 
