@@ -8,15 +8,15 @@ from environs import Env
 
 def send_info_message(attempt):
     if attempt["is_negative"]:
-        is_right_text = 'К сожалению в работе нашлись ошибки.'
+        right_or_not_text = 'К сожалению в работе нашлись ошибки.'
     else:
-        is_right_text = 'Преподавателю всё понравилось, можно приступать к работе.'
+        right_or_not_text = 'Преподавателю всё понравилось, можно приступать к работе.'
     text = textwrap.dedent(f'''\
     Вашу работу {attempt['lesson_title']} проверил преподаватель.
         
     Ссылка на работу: {attempt['lesson_url']}
             
-    {is_right_text}
+    {right_or_not_text}
     ''')
     bot.send_message(chat_id=tg_chat_id, text=text)
 
