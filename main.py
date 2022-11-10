@@ -3,7 +3,7 @@ import textwrap
 
 import telegram
 import requests
-from environs import Env
+import os
 
 
 def send_info_message(attempt):
@@ -22,11 +22,9 @@ def send_info_message(attempt):
 
 
 if __name__ == '__main__':
-    env = Env()
-    env.read_env()
-    tg_token = env.str('TG_TOKEN')
-    dvmn_token = env.str('DVMN_TOKEN')
-    tg_chat_id = env('TG_CHAT_ID')
+    tg_token = os.environ['TG_TOKEN']
+    dvmn_token = os.environ['DVMN_TOKEN']
+    tg_chat_id = os.environ['TG_CHAT_ID']
 
     bot = telegram.Bot(token=tg_token)
 
