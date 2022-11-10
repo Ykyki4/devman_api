@@ -1,9 +1,11 @@
 import time
 import textwrap
+import logging
+import os
 
 import telegram
 import requests
-import os
+
 
 
 def send_info_message(attempt):
@@ -37,6 +39,7 @@ if __name__ == '__main__':
         try:
             response = requests.get(url, headers=headers, params=params)
             response.raise_for_status()
+            logging.warning("Бот запущен")
         except requests.exceptions.HTTPError:
             time.sleep(5)
             continue
