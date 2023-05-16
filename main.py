@@ -59,10 +59,7 @@ if __name__ == '__main__':
             try:
                 response = requests.get(url, headers=headers, params=params)
                 response.raise_for_status()
-            except requests.exceptions.HTTPError:
-                time.sleep(5)
-                continue
-            except requests.exceptions.ConnectionError:
+            except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError):
                 time.sleep(5)
                 continue
             except requests.exceptions.ReadTimeout:
