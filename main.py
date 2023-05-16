@@ -1,10 +1,10 @@
+import logging
 import time
 import textwrap
-import logging
-import os
 
-import telegram
+from environs import Env
 import requests
+import telegram
 
 
 logger = logging.getLogger('Telegram Logger')
@@ -38,9 +38,11 @@ def send_info_message(attempt):
 
 
 if __name__ == '__main__':
-    tg_token = os.environ['TG_TOKEN']
-    dvmn_token = os.environ['DVMN_TOKEN']
-    tg_chat_id = os.environ['TG_CHAT_ID']
+    env = Env()
+    env.read_env()
+    tg_token = env('TG_TOKEN')
+    dvmn_token = env('DVMN_TOKEN')
+    tg_chat_id = env('TG_CHAT_ID')
 
     bot = telegram.Bot(token=tg_token)
 
